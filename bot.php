@@ -1,8 +1,6 @@
 <?php
 //echo "I am a bot";
 /////test thingspeak////
-$API_KEY = "2ENTOBHKZDQQJ3NO";
-$commanLine= 20;
 /////end thingspeak/////
 
 
@@ -54,9 +52,6 @@ echo "OK";
 
 function send_reply_message($url, $post_header, $post_body)
 {
- $temp_tm= 20;
- $ThingsSpeakURL = "https://api.thingspeak.com/update?api_key=2ENTOBHKZDQQJ3NO&field1=0".$thingspeak427743."&amp;field8=".$temp_tm;
-
  $ch = curl_init($url);
  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -65,6 +60,17 @@ function send_reply_message($url, $post_header, $post_body)
  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
  $result = curl_exec($ch);
  curl_close($ch);
+ 
+ $API_KEY = "2ENTOBHKZDQQJ3NO";
+ $temp_tm= 20;
+ $ThingsSpeakURL = "http://api.thingspeak.com/update?key=".$API_KEY."&field8=".$temp_tm;
+ $curl_handle = curl_init($ThingsSpeakURL);
+ curl_setopt( $curl_handle, CURLOPT_URL, $ThingsSpeakURL );
+ curl_setopt( $curl_handle, CURLOPT_RETURNTRANSFER, true);
+ curl_setopt( $curl_handle, CURLOPT_FOLLOWLOCATION, 1);
+ curl_exec( $curl_handle );
+ curl_close( $curl_handle );
+ 
  return $result;
 }
 
