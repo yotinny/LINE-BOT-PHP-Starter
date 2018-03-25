@@ -1,5 +1,10 @@
 <?php
 //echo "I am a bot";
+/////test thingspeak////
+$API_KEY = "2ENTOBHKZDQQJ3NO";
+$commanLine= 20;
+/////end thingspeak/////
+
 
 $API_URL = 'https://api.line.me/v2/bot/message/reply';
 $ACCESS_TOKEN = 't0XAsAbr3TrUARjo7IEKOt5NG5z6uYE8KmJ45cXH2cZo5T3F9Il4cz6LV6oYkosbfhWNdgBn7Uhan+2/AV6El/bfgKaYCsYr8rImuxnEq0YMbQdMHYEvue3HeFiyMy14fzmB1KiBtA1iwUfw9bbPVAdB04t89/1O/w1cDnyilFU='; // Access Token ค่าที่เราสร้างขึ้น
@@ -57,6 +62,15 @@ function send_reply_message($url, $post_header, $post_body)
  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
  $result = curl_exec($ch);
  curl_close($ch);
+ 
+ $things_url = "http://api.thingspeak.com/update?key=".$API_KEY."&field8=".$commanLine;
+ $curl_handle = curl_init();
+ curl_setopt( $curl_handle, CURLOPT_URL, $things_url);
+ curl_setopt( $curl_handle, CURLOPT_RETURNTRANSFER, true);
+ curl_setopt( $curl_handle, CURLOPT_FOLLOWLOCATION, 0);
+ curl_exec( $curl_handle );
+ curl_close( $curl_handle );
+
 
  return $result;
 }
