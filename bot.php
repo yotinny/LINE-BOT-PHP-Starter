@@ -54,6 +54,8 @@ echo "OK";
 
 function send_reply_message($url, $post_header, $post_body)
 {
+ $temp_tm= 20;
+ $ThingsSpeakURL = "https://api.thingspeak.com/update?api_key=2ENTOBHKZDQQJ3NO&field1=0".$thingspeak427743."&amp;field8=".$temp_tm;
 
  $ch = curl_init($url);
  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
