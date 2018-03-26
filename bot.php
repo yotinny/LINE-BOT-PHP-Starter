@@ -61,9 +61,9 @@ function send_reply_message($url, $post_header, $post_body)
  $result = curl_exec($ch);
  curl_close($ch);
  
- $API_KEY = "2ENTOBHKZDQQJ3NO";
- $temp_tm= 20;
- $ThingsSpeakURL = "http://api.thingspeak.com/update?key=".$API_KEY."&field8=".$temp_tm;
+ $API_KEY = "3MVDVVH1L4NYFT9N";
+ $temp_tm= 30;
+ $ThingsSpeakURL = "http://api.thingspeak.com/update?key=".$API_KEY."&field1=".$temp_tm;
  $curl_handle = curl_init($ThingsSpeakURL);
  curl_setopt( $curl_handle, CURLOPT_URL, $ThingsSpeakURL );
  curl_setopt( $curl_handle, CURLOPT_RETURNTRANSFER, true);
