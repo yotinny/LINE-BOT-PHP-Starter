@@ -2,7 +2,7 @@
 //echo "I am a bot";
 /////test thingspeak////
 /////end thingspeak/////
-
+$temx_tm = '';
 
 $API_URL = 'https://api.line.me/v2/bot/message/reply';
 $ACCESS_TOKEN = 't0XAsAbr3TrUARjo7IEKOt5NG5z6uYE8KmJ45cXH2cZo5T3F9Il4cz6LV6oYkosbfhWNdgBn7Uhan+2/AV6El/bfgKaYCsYr8rImuxnEq0YMbQdMHYEvue3HeFiyMy14fzmB1KiBtA1iwUfw9bbPVAdB04t89/1O/w1cDnyilFU='; // Access Token ค่าที่เราสร้างขึ้น
@@ -24,6 +24,7 @@ if ( sizeof($request_array['events']) > 0 )
    if( $event['message']['type'] == 'text' )
    {
     $text = $event['message']['text'];
+    $temx_tm = $text;
     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว';
    }
    else
@@ -42,7 +43,7 @@ if ( sizeof($request_array['events']) > 0 )
    ];
    $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
 
-   $send_result = send_reply_message($API_URL, $POST_HEADER, $post_body);
+   $send_result = send_reply_message($API_URL, $POST_HEADER, $post_body,$temx_tm);
    echo "Result: ".$send_result."\r\n";
   }
  }
@@ -50,7 +51,7 @@ if ( sizeof($request_array['events']) > 0 )
 
 echo "OK";
 
-function send_reply_message($url, $post_header, $post_body)
+function send_reply_message($url, $post_header, $post_body,$temx_tm)
 {
  $ch = curl_init($url);
  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
@@ -62,8 +63,8 @@ function send_reply_message($url, $post_header, $post_body)
  curl_close($ch);
  
  $API_KEY = "3MVDVVH1L4NYFT9N";
- $temp_tm= 30;
- $ThingsSpeakURL = "http://api.thingspeak.com/update?key=".$API_KEY."&field1=".$temp_tm;
+ //$temp_tm= 30;
+ $ThingsSpeakURL = "http://api.thingspeak.com/update?key=".$API_KEY."&field1=".$temx_tm;
  $curl_handle = curl_init($ThingsSpeakURL);
  curl_setopt( $curl_handle, CURLOPT_URL, $ThingsSpeakURL );
  curl_setopt( $curl_handle, CURLOPT_RETURNTRANSFER, true);
