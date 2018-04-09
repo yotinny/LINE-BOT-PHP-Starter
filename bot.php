@@ -25,15 +25,22 @@ if ( sizeof($request_array['events']) > 0 )
    {
     $text = $event['message']['text'];
     $temx_tm = $text;
-    $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว';
+    if ($temx_tm == "Count")
+    {
+     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว';
+    }
    }
    else
-    $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว';
-  
+    if ($temx_tm == "Count")
+    {
+     $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว';
+    }
   }
   else
-   $reply_message = 'ระบบได้รับ Event '.ucfirst($event['type']).' ของคุณแล้ว';
- 
+   if ($temx_tm == "Count")
+   {
+    $reply_message = 'ระบบได้รับ Event '.ucfirst($event['type']).' ของคุณแล้ว';
+   }
   if( strlen($reply_message) > 0 )
   {
    //$reply_message = iconv("tis-620","utf-8",$reply_message);
