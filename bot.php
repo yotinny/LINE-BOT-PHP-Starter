@@ -17,6 +17,7 @@ if ( sizeof($request_array['events']) > 0 )
  foreach ($request_array['events'] as $event)
  {
   $reply_message = '';
+  $img = '';
   $reply_token = $event['replyToken'];
 
   if ( $event['type'] == 'message' ) 
@@ -31,7 +32,8 @@ if ( sizeof($request_array['events']) > 0 )
      $xml = simplexml_load_file($url);
      $field7 = $xml->xpath('//feed/field7');
      $re = print_r($field7, true);
-     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ ('.$re.')';
+     $img = base64_decode($re);
+     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ ('.$re.') + '.$img.'';
     }
     else
      $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ';
@@ -55,7 +57,6 @@ if ( sizeof($request_array['events']) > 0 )
     $xml = simplexml_load_file($url);
     $channel_name = (string) $xml->Data;
     $field7 = $xml->xpath('//feed/field7');
-
     $reply_message = 'ระบบได้รับ Event '.ucfirst($event['type']).' ของคุณแล้ว ('.$field7.')';
    }
    else
