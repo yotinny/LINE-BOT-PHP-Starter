@@ -1,10 +1,6 @@
 <?php
 //echo "I am a bot";
 /////test thingspeak////
-$urlImage = "https://api.thingspeak.com/channels/427743/feeds.json?results=2";
-$xmlImage = simplexml_load_file($urlImage);
-$channel_name = (string) $xmlImage->Data;
-//$field7 = $xmlImage->xpath('//feed/field7');
 /////end thingspeak/////
 $temx_tm = '';
 
@@ -31,7 +27,8 @@ if ( sizeof($request_array['events']) > 0 )
     $temx_tm = $text;
     if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
     {
-     $field7 = $xmlImage->xpath('//feed/field7');
+     $urlImage = "https://api.thingspeak.com/channels/427743/fields/7.json?results=2";
+     $field7 = simplexml_load_file($urlImage);
      $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว chanel image = ('.$field7.') path รูป';
     }
     else
@@ -40,7 +37,8 @@ if ( sizeof($request_array['events']) > 0 )
    else
     if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
     {
-     $field7 = $xmlImage->xpath('//feed/field7');
+     $urlImage = "https://api.thingspeak.com/channels/427743/fields/7.json?results=2";
+     $field7 = simplexml_load_file($urlImage);
      $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว chanel image = ('.$field7.') path รูป';
     }
     else
@@ -49,7 +47,8 @@ if ( sizeof($request_array['events']) > 0 )
   else
    if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
    {
-    $field7 = $xmlImage->xpath('//feed/field7');
+    $urlImage = "https://api.thingspeak.com/channels/427743/fields/7.json?results=2";
+    $field7 = simplexml_load_file($urlImage);
     $reply_message = 'ระบบได้รับ Event '.ucfirst($event['type']).' ของคุณแล้ว chanel image = ('.$field7.') path รูป';
    }
    else
