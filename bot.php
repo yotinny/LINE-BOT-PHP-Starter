@@ -27,7 +27,7 @@ if ( sizeof($request_array['events']) > 0 )
     $temx_tm = $text;
     if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
     {
-     $url = "https://api.thingspeak.com/channels/427743/field7/last.xml?results=2";
+     $url = "https://api.thingspeak.com/channels/427743/fields/7/last.xml?results=2";
      $xml = simplexml_load_file($url);
      $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ ('.$xml.')';
     }
