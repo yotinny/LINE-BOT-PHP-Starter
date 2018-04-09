@@ -27,7 +27,7 @@ if ( sizeof($request_array['events']) > 0 )
     $temx_tm = $text;
     if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
     {
-     $url = "https://api.thingspeak.com/channels/427743/feeds/last.xml?results=500";
+     $url = "https://api.thingspeak.com/channels/427743/feeds.xml?results=500";
      $xml = simplexml_load_file($url);
      $field7 = $xml->xpath('//feed/field7');
      $countArray = 0;
