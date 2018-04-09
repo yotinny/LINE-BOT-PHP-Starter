@@ -29,7 +29,7 @@ if ( sizeof($request_array['events']) > 0 )
     {
      $url = "https://api.thingspeak.com/channels/427743/feeds.xml?results=1";
      $xml = simplexml_load_file($url);
-     $field7 = $xml->xpath('//feed/field7');
+     $field7 = $xml->xpath('///feed//field7/last');
      $re = print_r($field7, true);
      $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ z('.$re.')';
     }
