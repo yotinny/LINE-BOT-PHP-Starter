@@ -34,7 +34,7 @@ if ( sizeof($request_array['events']) > 0 )
      for ($i = 0; $i < $field7; $i++) { 
       $countArray++;
      }
-     $re = $field7[$countArray]
+     $re = print_r($field7[$countArray]);
      $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ ('.$re.')';
     }
     else
