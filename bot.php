@@ -25,28 +25,28 @@ if ( sizeof($request_array['events']) > 0 )
    {
     $text = $event['message']['text'];
     $temx_tm = $text;
-    if ($temx_tm == "Count")
+    if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
     {
      $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว';
     }
     else
-     $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cored], Count Blue[Cb], Count Yellow[Cy], Example : You want to count triangle use commanline "Ct" ';
+     $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ';
    }
    else
-    if ($temx_tm == "Count")
+    if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
     {
      $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว';
     }
     else
-     $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cored], Count Blue[Cb], Count Yellow[Cy], Example : You want to count triangle use commanline "Ct" ';
+     $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ';
   }
   else
-   if ($temx_tm == "Count")
+   if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
    {
     $reply_message = 'ระบบได้รับ Event '.ucfirst($event['type']).' ของคุณแล้ว';
    }
    else
-    $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cored], Count Blue[Cb], Count Yellow[Cy], Example : You want to count triangle use commanline "Ct" ';
+    $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ';
   if( strlen($reply_message) > 0 )
   {
    //$reply_message = iconv("tis-620","utf-8",$reply_message);
