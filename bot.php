@@ -29,8 +29,7 @@ if ( sizeof($request_array['events']) > 0 )
     {
      $url = "https://api.thingspeak.com/channels/427743/fields/7/last.xml?results=2";
      $xml = simplexml_load_file($url);
-     $request_array_xml = xml_decode($xml, true);
-     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ ('.$request_array_xml.')';
+     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ ('.$xml.')';
     }
     else
      $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ';
