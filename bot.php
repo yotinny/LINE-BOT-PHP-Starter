@@ -27,11 +27,14 @@ if ( sizeof($request_array['events']) > 0 )
     $temx_tm = $text;
     if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
     {
-     $url = "https://api.thingspeak.com/channels/427743/feeds.xml?results=1";
+     $url = "https://api.thingspeak.com/channels/427743/feeds/last.xml?results=500";
      $xml = simplexml_load_file($url);
-     $field7 = $xml->xpath('///feed//field7/last');
-     $re = print_r($field7, true);
-     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ z('.$re.')';
+     $field7 = $xml->xpath('//feed/field7');
+     $countArray = 0;
+     for ($i = 0; $i < $field7; $i++) { 
+      $count=$count+1;
+     }
+     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ z('.$field7[$count].')';
     }
     else
      $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ';
