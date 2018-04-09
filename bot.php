@@ -27,14 +27,10 @@ if ( sizeof($request_array['events']) > 0 )
     $temx_tm = $text;
     if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
     {
-     $url = "https://api.thingspeak.com/channels/427743/feeds.xml?results=500";
+     $url = "https://api.thingspeak.com/channels/427743/feeds.xml?results=1";
      $xml = simplexml_load_file($url);
      $field7 = $xml->xpath('//feed/field7');
-     $countArray = 0;
-     for ($i = 0; $i < $field7; $i++) { 
-      $countArray++;
-     }
-     $re = print_r($field7[$countArray]);
+     $re = print_r($field7);
      $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ ('.$re.')';
     }
     else
