@@ -27,7 +27,10 @@ if ( sizeof($request_array['events']) > 0 )
     $temx_tm = $text;
     if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
     {
-     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว';
+     $API_KEY = "FLCOUCV787IRVE05";
+     $ThingsSpeakURLRead = "https://api.thingspeak.com/channels/"."427743"."/feed/last.json?api_key=".$API_KEY;
+     $max_up = get_fcontent($ThingsSpeakURL,"field7");
+     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว  ('.$max_up.') ';
     }
     else
      $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ';
@@ -35,7 +38,10 @@ if ( sizeof($request_array['events']) > 0 )
    else
     if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
     {
-     $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว';
+     $API_KEY = "FLCOUCV787IRVE05";
+     $ThingsSpeakURLRead = "https://api.thingspeak.com/channels/"."427743"."/feed/last.json?api_key=".$API_KEY;
+     $max_up = get_fcontent($ThingsSpeakURL,"field7");
+     $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว ('.$max_up.')';
     }
     else
      $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ';
@@ -43,7 +49,10 @@ if ( sizeof($request_array['events']) > 0 )
   else
    if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
    {
-    $reply_message = 'ระบบได้รับ Event '.ucfirst($event['type']).' ของคุณแล้ว';
+    $API_KEY = "FLCOUCV787IRVE05";
+    $ThingsSpeakURLRead = "https://api.thingspeak.com/channels/"."427743"."/feed/last.json?api_key=".$API_KEY;
+    $max_up = get_fcontent($ThingsSpeakURL,"field7");
+    $reply_message = 'ระบบได้รับ Event '.ucfirst($event['type']).' ของคุณแล้ว ('.$max_up.')';
    }
    else
     $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ';
