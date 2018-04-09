@@ -27,11 +27,7 @@ if ( sizeof($request_array['events']) > 0 )
     $temx_tm = $text;
     if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
     {
-     $url = "https://api.thingspeak.com/channels/427743/feeds.json?results=2";
-     $xml = simplexml_load_file($url);
-     $channel_name = (string) $xml->name;
-     $field7 = $xml->xpath('//feed/field7'); //gets all <field1/> whose parent is <feed/>
-     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว chanel image = ('.$field7.') path รูป';
+     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว';
     }
     else
      $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ';
@@ -39,11 +35,7 @@ if ( sizeof($request_array['events']) > 0 )
    else
     if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
     {
-     $url = "https://api.thingspeak.com/channels/427743/feeds.json?results=2";
-     $xml = simplexml_load_file($url);
-     $channel_name = (string) $xml->name;
-     $field7 = $xml->xpath('//feed/field7'); //gets all <field1/> whose parent is <feed/>
-     $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว chanel image = ('.$field7.') path รูป';
+     $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว';
     }
     else
      $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ';
@@ -51,11 +43,7 @@ if ( sizeof($request_array['events']) > 0 )
   else
    if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
    {
-    $url = "https://api.thingspeak.com/channels/427743/feeds.json?results=2";
-    $xml = simplexml_load_file($url);
-    $channel_name = (string) $xml->name;
-    $field7 = $xml->xpath('//feed/field7'); //gets all <field1/> whose parent is <feed/>
-    $reply_message = 'ระบบได้รับ Event '.ucfirst($event['type']).' ของคุณแล้ว chanel image = ('.$field7.') path รูป';
+    $reply_message = 'ระบบได้รับ Event '.ucfirst($event['type']).' ของคุณแล้ว';
    }
    else
     $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ';
