@@ -31,7 +31,7 @@ if ( sizeof($request_array['events']) > 0 )
      $xml = simplexml_load_file($url);
      $channel_name = (string) $xml->Data;
      $field7 = $xml->xpath('//feed/field7');
-     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว ('.$field7.')';
+     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ ('.$field7.')';
     }
     else
      $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ';
