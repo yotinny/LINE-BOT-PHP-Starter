@@ -32,9 +32,10 @@ if ( sizeof($request_array['events']) > 0 )
      $field7 = $xml->xpath('//feed/field7');
      $countArray = 0;
      for ($i = 0; $i < $field7; $i++) { 
-      $count=$count+1;
+      $countArray++;
      }
-     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ z('.$field7[$count].')';
+     $re = $field7[$countArray]
+     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ ('.$re.')';
     }
     else
      $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ';
