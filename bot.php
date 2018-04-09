@@ -1,6 +1,10 @@
 <?php
 //echo "I am a bot";
 /////test thingspeak////
+$urlImage = "https://api.thingspeak.com/channels/427743/feeds.json?results=2";
+$xmlImage = simplexml_load_file($urlImage);
+$channel_name = (string) $xmlImage->Data;
+//$field7 = $xmlImage->xpath('//feed/field7');
 /////end thingspeak/////
 $temx_tm = '';
 
@@ -27,7 +31,8 @@ if ( sizeof($request_array['events']) > 0 )
     $temx_tm = $text;
     if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
     {
-     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว';
+     $field7 = $xmlImage->xpath('//feed/field7');
+     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว chanel image = ('.$field7.') path รูป';
     }
     else
      $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ';
@@ -35,7 +40,8 @@ if ( sizeof($request_array['events']) > 0 )
    else
     if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
     {
-     $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว';
+     $field7 = $xmlImage->xpath('//feed/field7');
+     $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว chanel image = ('.$field7.') path รูป';
     }
     else
      $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ';
@@ -43,7 +49,8 @@ if ( sizeof($request_array['events']) > 0 )
   else
    if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
    {
-    $reply_message = 'ระบบได้รับ Event '.ucfirst($event['type']).' ของคุณแล้ว';
+    $field7 = $xmlImage->xpath('//feed/field7');
+    $reply_message = 'ระบบได้รับ Event '.ucfirst($event['type']).' ของคุณแล้ว chanel image = ('.$field7.') path รูป';
    }
    else
     $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ';
