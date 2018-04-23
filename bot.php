@@ -94,8 +94,9 @@ if ( sizeof($request_array['events']) > 0 )
 echo "OK";
 header("Content-type: image/jpeg");
 $data ="/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAEJAQkDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQE";
-$img_string = base64_encode($data);
-<img src="data:image/jpeg;base64,<?php echo $img_string; ?>">
+echo base64_encode($data);
+<img src="data:image/png;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAEJAQkDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQE">
+
 //echo '<img src="data:image/jpeg;base64,' . $data . '" />';
 //echo '<img src="data:image/jpeg;base64,'.base64_encode($data).'">';
 
