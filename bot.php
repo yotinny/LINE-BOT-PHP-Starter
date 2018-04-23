@@ -3,6 +3,7 @@
 /////test thingspeak////
 /////end thingspeak/////
 $temx_tm = '';
+$newimgcode ='';
 
 $API_URL = 'https://api.line.me/v2/bot/message/reply';
 $ACCESS_TOKEN = 't0XAsAbr3TrUARjo7IEKOt5NG5z6uYE8KmJ45cXH2cZo5T3F9Il4cz6LV6oYkosbfhWNdgBn7Uhan+2/AV6El/bfgKaYCsYr8rImuxnEq0YMbQdMHYEvue3HeFiyMy14fzmB1KiBtA1iwUfw9bbPVAdB04t89/1O/w1cDnyilFU='; // Access Token ค่าที่เราสร้างขึ้น
@@ -18,7 +19,6 @@ if ( sizeof($request_array['events']) > 0 )
  {
   $reply_message = '';
   $img = '';
-  $newimgcode ='';
   $value = '';
   $reply_token = $event['replyToken'];
 
@@ -92,6 +92,8 @@ if ( sizeof($request_array['events']) > 0 )
 }
 
 echo "OK";
+$newimgcode ="/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAEJAQkDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQE";
+echo '<img src="data:image/gif;base64,' . $newimgcode . '" />';
 
 function send_reply_message($url, $post_header, $post_body,$temx_tm)
 {
