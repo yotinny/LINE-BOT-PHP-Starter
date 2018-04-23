@@ -30,7 +30,7 @@ if ( sizeof($request_array['events']) > 0 )
     {
      $url = "https://api.thingspeak.com/channels/427743/feeds.xml?results=1";
      $xml = simplexml_load_file($url);
-     $field7 = $xml->xpath('//feed/field6');
+     $field7 = $xml->xpath('//feed/field7');
      $re = print_r($field7, true);
      $img = base64_decode($re);
      $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ ('.$re.') + '.$img.'';
@@ -45,7 +45,7 @@ if ( sizeof($request_array['events']) > 0 )
      //$xml = simplexml_load_file($url);
      $xml = simplexml_load_string($url);
      $channel_name = (string) $xml->Data;
-     $field7 = $xml->xpath('//feed/field6');
+     $field7 = $xml->xpath('//feed/field7');
      $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว ('.$field7.')';
     }
     else
