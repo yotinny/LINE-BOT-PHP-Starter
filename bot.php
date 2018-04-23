@@ -18,7 +18,7 @@ if ( sizeof($request_array['events']) > 0 )
  {
   $reply_message = '';
   $img = '';
-  $xmlelement ='';
+  $newimgcode ='';
   $value = '';
   $reply_token = $event['replyToken'];
 
@@ -37,9 +37,10 @@ if ( sizeof($request_array['events']) > 0 )
      
      $re = print_r($field7, true);   
      $value = explode("=>", $re);
-          
+     $newimgcode = explode(")", $value[2]);     
      $img = base64_decode($re);  
-     $reply_message = ''.$value[2].'';
+     
+     $reply_message = ''.$newimgcode[0].'';
      //$reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ '.$re.' + '.$value[0].'';
      
     }
