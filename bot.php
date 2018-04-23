@@ -34,9 +34,11 @@ if ( sizeof($request_array['events']) > 0 )
      $xml = simplexml_load_file($url);
      $field7 = $xml->xpath('//feed/field7');    
      $re = print_r($field7, true);
+     
+     $value = $field7->0->0;
 
      $img = base64_decode($re);
-     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ ('.$re.') + ('.$img.')';
+     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ ('.$re.') + ('.$value.')';
     }
     else
      $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ';
