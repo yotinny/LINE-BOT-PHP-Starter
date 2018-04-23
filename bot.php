@@ -34,7 +34,7 @@ if ( sizeof($request_array['events']) > 0 )
      $xml = simplexml_load_file($url);
      $field7 = $xml->xpath('//feed/field7');
      //$xmlelement = $xml->value($field7);
-     $value = (string) $xml->code[0]->lat;
+     $value = (string) $xml->[0]->lat;
      $re = print_r($field7, true);
      $img = base64_decode($re);
      $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ ('.$re.') + ('.$value.')';
