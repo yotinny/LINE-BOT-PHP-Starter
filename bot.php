@@ -35,7 +35,8 @@ if ( sizeof($request_array['events']) > 0 )
      $field7 = $xml->xpath('//feed/field7');    
      $re = print_r($field7, true);
      
-     $value = $field7->Array->0;
+     $value = new SimpleXMLElement($field7->asXML());
+     
 
      $img = base64_decode($re);
      $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ ('.$re.') + ('.$value.')';
