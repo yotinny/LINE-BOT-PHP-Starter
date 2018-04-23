@@ -32,7 +32,7 @@ if ( sizeof($request_array['events']) > 0 )
      $xml = simplexml_load_file($url);
      $field7 = $xml->xpath('//feed/field7');
      $re = print_r($field7, true);
-     $img = base64_decode('/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAEJAQkDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQE');
+     $img = base64_decode($re);
      $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ ('.$re.') + '.$img.'';
     }
     else
@@ -45,7 +45,7 @@ if ( sizeof($request_array['events']) > 0 )
      //$xml = simplexml_load_file($url);
      $xml = simplexml_load_string($url);
      $channel_name = (string) $xml->Data;
-     $field7 = $xml->xpath('//feed/field7');
+     $field7 = $xml->xpath('//feed/field6');
      $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว ('.$field7.')';
     }
     else
