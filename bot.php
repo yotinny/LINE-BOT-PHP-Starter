@@ -32,11 +32,11 @@ if ( sizeof($request_array['events']) > 0 )
     {
      $url = "https://api.thingspeak.com/channels/427743/feeds.xml?results=1";
      $xml = simplexml_load_file($url);
+     $field7 = $xml->xpath('//feed/field7');    
      
-     $json_string = json_encode($xml);    
+     $json_string = json_encode($field7);    
      $result_array = json_decode($json_string, TRUE);
-     
-     $field7 = $xml->xpath('//feed/field7');     
+ 
      $re = print_r($field7, true);
      $img = base64_decode($re);
      $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ ('.$re.') + ('.$result_array.')';
