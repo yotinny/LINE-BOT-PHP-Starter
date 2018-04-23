@@ -32,7 +32,7 @@ if ( sizeof($request_array['events']) > 0 )
      $xml = simplexml_load_file($url);
      $field7 = $xml->xpath('//feed/field7');
      $re = print_r($field7, true);
-     $img = base64_decode($re);
+     $img = base64_decode('/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAEJAQkDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQE');
      $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ ('.$re.') + '.$img.'';
     }
     else
