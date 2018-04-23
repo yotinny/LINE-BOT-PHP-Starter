@@ -35,7 +35,7 @@ if ( sizeof($request_array['events']) > 0 )
      $field7 = $xml->xpath('//feed/field7');    
      $re = print_r($field7, true);
      
-     $value = new SimpleXMLElement($field7->asXML());
+     $value = $re->asXML();
      
 
      $img = base64_decode($re);
