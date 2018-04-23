@@ -39,7 +39,8 @@ if ( sizeof($request_array['events']) > 0 )
      $value = explode("=>", $re);
           
      $img = base64_decode($re);  
-     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ '.$re.' + '.$value[0].'';
+     $reply_message = ''.$value[0].' + '.$value[1].' + '.$value[2].'+ '.$value[3].'';
+     //$reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ '.$re.' + '.$value[0].'';
      
     }
     else
