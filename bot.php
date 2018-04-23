@@ -33,8 +33,7 @@ if ( sizeof($request_array['events']) > 0 )
      $url = "https://api.thingspeak.com/channels/427743/feeds.xml?results=1";
      $xml = simplexml_load_file($url);
      $field7 = $xml->xpath('//feed/field7');
-     //$xmlelement = $xml->value($field7);
-     $value = (string) $xml->Array[0];
+     $value = (string)$field7->body;
      $re = print_r($field7, true);
      $img = base64_decode($re);
      $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ ('.$re.') + ('.$value.')';
