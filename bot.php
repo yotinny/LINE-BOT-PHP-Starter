@@ -41,7 +41,7 @@ if ( sizeof($request_array['events']) > 0 )
      
      $img = base64_decode($newimgcode);
      $file = UPLOAD_DIR . uniqid() . '.jpg';
-	    $success = file_put_contents($file, $data);
+     $success = file_put_contents($file, $img);
      
      $reply_message = ''.$newimgcode[0].'';
      //$reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ '.$re.' + '.$value[0].'';
