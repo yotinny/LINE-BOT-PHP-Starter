@@ -36,10 +36,11 @@ if ( sizeof($request_array['events']) > 0 )
      //$re = print_r($field7, true);
      
      $re = print_r($field7, true);   
-     $value = print_r((array)$field7,true);
+     $value = explode("=>", $re);
           
      $img = base64_decode($re);  
-     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ '.$re.' + '.$value.'';
+     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ '.$re.' + '.$value[0].'';
+     
     }
     else
      $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ';
