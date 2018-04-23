@@ -34,15 +34,9 @@ if ( sizeof($request_array['events']) > 0 )
      $xml = simplexml_load_file($url);
      $field7 = $xml->xpath('//feed/field7');    
      $re = print_r($field7, true);
-     
-     $json_string = json_encode($field7);    
-     $result_array = json_decode($json_string, TRUE);
-     $dec = (Array)json_decode($result_array);
-     
-     $arrXml = objectsIntoArray($field7);
-      
+
      $img = base64_decode($re);
-     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ ('.$re.') + ('.$arrXml.')';
+     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ ('.$re.') + ('.$img.')';
     }
     else
      $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ';
@@ -110,29 +104,6 @@ function send_reply_message($url, $post_header, $post_body,$temx_tm)
  curl_close( $curl_handle );
  
  return $result;
-}
-
-function objectsIntoArray($arrObjData, $arrSkipIndices = array())
-{
-    $arrData = array();
-    
-    // if input is object, convert into array
-    if (is_object($arrObjData)) {
-        $arrObjData = get_object_vars($arrObjData);
-    }
-    
-    if (is_array($arrObjData)) {
-        foreach ($arrObjData as $index => $value) {
-            if (is_object($value) || is_array($value)) {
-                $value = objectsIntoArray($value, $arrSkipIndices); // recursive call
-            }
-            if (in_array($index, $arrSkipIndices)) {
-                continue;
-            }
-            $arrData[$index] = $value;
-        }
-    }
-    return $arrData;
 }
 
 ?>
