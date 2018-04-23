@@ -92,10 +92,10 @@ if ( sizeof($request_array['events']) > 0 )
 }
 
 echo "OK";
-header("Content-type: image/jpg");
+//header("Content-type: image/jpg");
 $data ="/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAEJAQkDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQE";
 //echo base64_decode($data);
-echo '<img src="data:image/jpg;base64,' . $data . '" />';
+echo '<img src="data:image/png;base64,' . $data . '" />';
 
 function send_reply_message($url, $post_header, $post_body,$temx_tm)
 {
