@@ -46,6 +46,7 @@ if ( sizeof($request_array['events']) > 0 )
      echo base64_decode($newimgcode);
      
      $reply_message = ''.$newimgcode[0].'';
+     $reply_message = 'https://drive.google.com/drive/folders/14CMkXV0pz_xezmJ8DCYdpPmT_MxTx_6Y?usp=sharing';
      //$reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ '.$re.' + '.$value[0].'';
      
     }
