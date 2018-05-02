@@ -28,11 +28,7 @@ if ( sizeof($request_array['events']) > 0 )
    {
     $text = $event['message']['text'];
     $temx_tm = $text;
-    if($temx_tm == "/image")
-    {
-     $reply_message = 'https://drive.google.com/drive/folders/14CMkXV0pz_xezmJ8DCYdpPmT_MxTx_6Y?usp=sharing';
-    }
-    elseif ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
+    if (($temx_tm == "/image" || $temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
     {
      $url = "https://api.thingspeak.com/channels/427743/feeds.xml?results=1";
      $xml = simplexml_load_file($url);
@@ -46,19 +42,19 @@ if ( sizeof($request_array['events']) > 0 )
      $img = base64_decode($newimgcode);
      $file = UPLOAD_DIR . uniqid() . '.jpg';
      $success = file_put_contents($file, $img);
-     
-     echo base64_decode($newimgcode);
-     
      $reply_message = ''.$newimgcode[0].'';
      //$reply_message = 'https://drive.google.com/drive/folders/14CMkXV0pz_xezmJ8DCYdpPmT_MxTx_6Y?usp=sharing';
-     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ กำลังทำการปรับ process';
-     
+     //$reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ กำลังทำการปรับ process';
+     if($temx_tm == "/image")
+     {
+         $reply_message = 'https://drive.google.com/drive/folders/14CMkXV0pz_xezmJ8DCYdpPmT_MxTx_6Y?usp=sharing';
+     }
+     else
+      $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ กำลังทำการปรับ process';
     }
-    elseif{
+    else
      $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct",/image ';
     }
-   }
-  }
    else
     if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
     {
