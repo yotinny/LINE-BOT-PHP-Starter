@@ -28,7 +28,7 @@ if ( sizeof($request_array['events']) > 0 )
    {
     $text = $event['message']['text'];
     $temx_tm = $text;
-    if (($temx_tm == "/image" || $temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
+    if ($temx_tm == "/image" || $temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
     {
      $url = "https://api.thingspeak.com/channels/427743/feeds.xml?results=1";
      $xml = simplexml_load_file($url);
@@ -87,6 +87,8 @@ if ( sizeof($request_array['events']) > 0 )
   }
  }
 }
+        
+        
 
 echo "OK";
 
