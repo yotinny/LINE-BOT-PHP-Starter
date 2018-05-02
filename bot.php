@@ -32,7 +32,7 @@ if ( sizeof($request_array['events']) > 0 )
     {
      $reply_message = 'https://drive.google.com/drive/folders/14CMkXV0pz_xezmJ8DCYdpPmT_MxTx_6Y?usp=sharing';
     }
-    if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
+    elseif ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
     {
      $url = "https://api.thingspeak.com/channels/427743/feeds.xml?results=1";
      $xml = simplexml_load_file($url);
@@ -54,9 +54,11 @@ if ( sizeof($request_array['events']) > 0 )
      $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ กำลังทำการปรับ process';
      
     }
-    else
+    elseif{
      $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct",/image ';
+    }
    }
+  }
    else
     if ($temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
     {
