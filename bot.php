@@ -51,7 +51,7 @@ if ( sizeof($request_array['events']) > 0 )
      
      $reply_message = ''.$newimgcode[0].'';
      //$reply_message = 'https://drive.google.com/drive/folders/14CMkXV0pz_xezmJ8DCYdpPmT_MxTx_6Y?usp=sharing';
-     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ '.$re.' + '.$value[0].'';
+     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ กำลังทำการปรับ process';
      
     }
     else
@@ -65,7 +65,7 @@ if ( sizeof($request_array['events']) > 0 )
      $xml = simplexml_load_string($url);
      $channel_name = (string) $xml->Data;
      $field7 = $xml->xpath('//feed/field7');
-     $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว ('.$field7.')';
+     $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ กำลังทำการปรับ process';
     }
     else
      $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct" ,/image';
@@ -77,7 +77,7 @@ if ( sizeof($request_array['events']) > 0 )
     $xml = simplexml_load_file($url);
     $channel_name = (string) $xml->Data;
     $field7 = $xml->xpath('//feed/field7');
-    $reply_message = 'ระบบได้รับ Event '.ucfirst($event['type']).' ของคุณแล้ว ('.$field7.')';
+    $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ กำลังทำการปรับ process';
    }
    else
     $reply_message = 'Manual Commanline: Count Rectangle[Cr], Count Triangle[Ct], Count Circle[Cc], Count Red[Cor], Count Blue[Cob], Count Yellow[Coy], Example : You want to count triangle use commanline "Ct",/image ';
@@ -97,11 +97,6 @@ if ( sizeof($request_array['events']) > 0 )
 }
 
 echo "OK";
-header("Content-type: image/jpeg");
-$data ="/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAEJAQkDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQE";
-echo base64_encode($data);
-//echo '<img src="data:image/jpeg;base64,' . $data . '" />';
-//echo '<img src="data:image/jpeg;base64,'.base64_encode($data).'">';
 
 function send_reply_message($url, $post_header, $post_body,$temx_tm)
 {
