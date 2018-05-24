@@ -28,7 +28,7 @@ if ( sizeof($request_array['events']) > 0 )
    {
     $text = $event['message']['text'];
     $temx_tm = $text;
-    if ($temx_tm == "/image" || $temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
+    if ($temx_tm == "Coy/graph" || $temx_tm == "Cob/graph" || $temx_tm == "Cor/graph" || $temx_tm == "Cc/graph" || $temx_tm == "Ct/graph" || $temx_tm == "Cr/graph" || $temx_tm == "/image" || $temx_tm == "Count" || $temx_tm == "Cr" || $temx_tm == "Ct" || $temx_tm == "Cc" || $temx_tm == "Cr" || $temx_tm == "Cor" || $temx_tm == "Cob" || $temx_tm == "Coy")
     {
      $url = "https://api.thingspeak.com/channels/427743/feeds.xml?results=1";
      $xml = simplexml_load_file($url);
@@ -44,9 +44,36 @@ if ( sizeof($request_array['events']) > 0 )
      $success = file_put_contents($file, $img);
      $reply_message = ''.$newimgcode[0].'';
      //$reply_message = 'https://drive.google.com/drive/folders/14CMkXV0pz_xezmJ8DCYdpPmT_MxTx_6Y?usp=sharing';
-     if ($temx_tm == "/image")
+     if ($temx_tm == "/image" || $temx_tm == "Coy/graph" || $temx_tm == "Cob/graph" || $temx_tm == "Cor/graph" || $temx_tm == "Cc/graph" || $temx_tm == "Ct/graph" || $temx_tm == "Cr/graph")
      {
-      $reply_message = 'https://drive.google.com/drive/folders/14CMkXV0pz_xezmJ8DCYdpPmT_MxTx_6Y?usp=sharing';
+       if ($temx_tm == "/image")
+       {
+         $reply_message = 'https://drive.google.com/drive/folders/14CMkXV0pz_xezmJ8DCYdpPmT_MxTx_6Y?usp=sharing';
+       }
+      if ($temx_tm == "Cr/graph")
+       {
+         $reply_message = 'https://thingspeak.com/channels/427743/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15';
+       }
+      if ($temx_tm == "Cc/graph")
+       {
+         $reply_message = 'https://thingspeak.com/channels/427743/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15';
+       }
+       if ($temx_tm == "Ct/graph")
+       {
+         $reply_message = 'https://thingspeak.com/channels/427743/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15';
+       }
+      if ($temx_tm == "Cor/graph")
+       {
+         $reply_message = 'https://thingspeak.com/channels/427743/charts/5?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15';
+       }
+      if ($temx_tm == "Cob/graph")
+       {
+         $reply_message = 'https://thingspeak.com/channels/427743/charts/6?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15';
+       }
+      if ($temx_tm == "Coy/graph")
+       {
+         $reply_message = 'https://thingspeak.com/channels/427743/charts/7?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15';
+       }
      }
      else
       $reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้วนะจะ กำลังทำการปรับ process';
